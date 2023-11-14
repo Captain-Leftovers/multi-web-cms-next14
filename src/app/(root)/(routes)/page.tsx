@@ -34,7 +34,7 @@ export default async function Home() {
 	}
 
 	try {
-		const stores = await getStoresWithAccess(userId)
+		const stores = await getStoresWithAccess()
 
 		if (!stores) {
 			return null

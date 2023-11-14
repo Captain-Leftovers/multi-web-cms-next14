@@ -1,6 +1,14 @@
 import prismadb from '@/lib/prismadb'
+import { currentUser } from '@clerk/nextjs'
+import { redirect } from 'next/navigation'
 
-export default async function getStoresWithAccess(userId: string) {
+export default async function getStoresWithAccess() {
+	const user = await currentUser()
+	const userId = user?.id
+	if (!userId) {
+		redirect('/')
+	}
+
 	try {
 		const stores = await prismadb.userStore.findMany({
 			where: {

@@ -24,7 +24,6 @@ export default function EditStoreAccessModal({}: EditStoreAccessModalProps) {
 	const storesWithAccess = modal.storeAccess.storesWithAccess
 	const storesWithoutAccess = modal.storeAccess.storesWithoutAccess
 
-	console.log('before modal return return')
 
 	return (
 		<Modal

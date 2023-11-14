@@ -14,7 +14,6 @@ export default function PickStoreModal() {
 	const { signOut } = useClerk()
 
 	const onStoreClick = async (path: string) => {
-		console.log(path);
 		
 		window.location.assign(`/${path}`)
 	}

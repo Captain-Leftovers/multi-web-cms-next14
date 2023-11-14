@@ -1,6 +1,6 @@
 'use client'
 
-import { RoutesType } from '@/app/(Web-Pages)/motorcycle-shop/moto-shop-types'
+import { RoutesType } from '@/lib/main.types'
 import { Store } from '@prisma/client'
 import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight, Sun } from 'lucide-react'
@@ -12,33 +12,26 @@ import {
 } from '@/components/ui/tooltip'
 import { TooltipTrigger } from '@radix-ui/react-tooltip'
 
-import { usePathname } from 'next/navigation'
+import { redirect, usePathname } from 'next/navigation'
 import NavigationLink from './navigation-link'
+import checkUserAccess from '@/actions/checkUserAccess'
 
-const routesArr: RoutesType[] = [
-	{
-		href: '/motorcycle-shop',
-		label: 'Home',
-		targetSegment: null,
-	},
-	{
-		href: '/motorcycle-shop/motorcycles',
-		label: 'Motorcycles',
-		description:
-			'Click here to see all the motorcycles you uploaded and add new ones',
-		targetSegment: 'motorcycles',
-	},
-]
+
 
 type MainNavProps = {
+	routerArr: RoutesType[]
 	stores: Store[]
 }
-export default function MainNav({ stores }: MainNavProps) {
+export default function MainNav({ stores,routerArr }: MainNavProps) {
 	const storeModal = usePickStoreModal()
 
-	const path = usePathname()
-	
+	const path = usePathname().split('/')[1]
 
+
+
+	if(!checkUserAccess(stores,path)){
+		redirect('/')
+	}
 
 	return (
 		<nav className="mx-6 flex items-center space-x-4 lg:space-x-6">
@@ -53,7 +46,7 @@ export default function MainNav({ stores }: MainNavProps) {
 					<ChevronRight />
 				</Button>
 			</div>
-			{routesArr.map((route) => (
+			{routerArr.map((route) => (
 				<NavigationLink
 					key={route.href}
 					href={route.href}

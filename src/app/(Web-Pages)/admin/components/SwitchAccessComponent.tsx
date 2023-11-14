@@ -56,7 +56,6 @@ export default function SwitchAccessComponent({
 
 	}
 
-	console.log('in switch access component')
 
 	return (
 		<Switch

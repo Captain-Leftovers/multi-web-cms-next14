@@ -1,9 +1,7 @@
-import checkUserAccess from '@/actions/checkUserAccess'
 import Container from '@/components/ui/container'
 import { ArrowBigUp } from 'lucide-react'
 
 export default async function MotorcycleShopHome() {
-	await checkUserAccess('motorcycle-shop')
 
 	return (
 		<main className=" w-full h-full">
