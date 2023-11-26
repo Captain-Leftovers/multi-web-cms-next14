@@ -60,14 +60,25 @@ export default function FormInfo({ open = false, onClose }: FormInfoProps) {
 						Featured
 					</span>
 				</div>
+				<Separator className="col-span-3" />
+
+				<div className="col-span-1 flex flex-col justify-around gap-4">
+					<Switch defaultChecked />
+					<span className="bg-cyan-400 w-fit rounded-md px-2 py-1 text-black font-semibold whitespace-nowrap">
+						Upcoming
+					</span>
+				</div>
 				<Separator
 					orientation="vertical"
 					className="h-auto mx-4 col-span-1"
 				/>
 				<p className="col-span-1">
-					Makes the Item appear in the{' '}
+					Marks the item as upcoming.
+					The Item will still appear in the{' '}
 					<b className="whitespace-nowrap">Moto-Repair </b>
-					website.
+					website if marked as <span className="bg-green-500 w-fit rounded-md px-2 py-1 text-black font-semibold whitespace-nowrap">
+						Featured
+					</span>{' '}.
 				</p>
 
 				<Separator className="col-span-3" />

@@ -19,6 +19,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 				featured: body.featured,
 				sold: body.sold,
 				onHold: body.onHold,
+				upcoming: body.upcoming,
 				addedByUserId: body.addedByUserId,
 			},
 		})
@@ -52,6 +53,7 @@ export async function PUT(req: NextRequest, res: NextResponse) {
 				featured: body.featured,
 				sold: body.sold,
 				onHold: body.onHold,
+				upcoming: body.upcoming,
 				addedByUserId: body.addedByUserId,
 				images: {
 					deleteMany: {},

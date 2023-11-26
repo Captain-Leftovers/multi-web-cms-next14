@@ -50,6 +50,7 @@ model MotoItem {
   featured      Boolean          @default(false)
   sold          Boolean          @default(false)
   onHold        Boolean          @default(false)
+  upcoming      Boolean          @default(false)
   addedByUserId String
   updatedAt     DateTime         @updatedAt
   createdAt     DateTime         @default(now())

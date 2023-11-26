@@ -45,21 +45,26 @@ export default function MotoImageCard({
 				}}
 			>
 				<Card className="space-y-2 w-[380px] h-[380px] p-4 overflow-hidden bg-transparent  hover:scale-105 transition-all ease-out duration-500 hover:bg-stone-100 group">
-					<CardContent className="relative w-full h-4/5 flex flex-col justify-between">
-						<div className="z-50 flex">
+					<CardContent className="relative w-full h-4/5 flex flex-col  justify-between">
+						<div className="z-50 flex flex-wrap gap-2">
 							{imageData.sold && (
-								<CardDescription className="ml-4 mt-4 bg-red-500 w-fit rounded-md px-2 py-1 text-white z-50">
+								<CardDescription className=" mt-4 bg-red-500 w-fit rounded-md px-2 py-1 text-white z-50">
 									Sold
 								</CardDescription>
 							)}
 							{imageData.onHold && (
-								<CardDescription className="ml-4 mt-4 bg-yellow-300 w-fit rounded-md px-2 py-1 text-black font-semibold z-50">
+								<CardDescription className=" mt-4 bg-yellow-300 w-fit rounded-md px-2 py-1 text-black font-semibold z-50 whitespace-nowrap">
 									On Hold
+								</CardDescription>
+							)}
+							{imageData.upcoming && (
+								<CardDescription className=" mt-4 bg-cyan-400 w-fit rounded-md px-2 py-1 text-black font-semibold z-50">
+									Upcoming
 								</CardDescription>
 							)}
 							{
 						imageData.featured &&
-						<CardDescription className="ml-4 mt-4 bg-green-500 w-fit rounded-lg px-2 py-1 text-white z-50">Featured</CardDescription>
+						<CardDescription className=" mt-4 bg-green-500 w-fit rounded-lg px-2 py-1 text-white z-50">Featured</CardDescription>
 					}
 						</div>
 

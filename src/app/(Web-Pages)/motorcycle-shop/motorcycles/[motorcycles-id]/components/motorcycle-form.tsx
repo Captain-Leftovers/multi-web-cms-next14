@@ -53,6 +53,7 @@ const formSchema = z.object({
 	featured: z.boolean().optional(),
 	sold: z.boolean().optional(),
 	onHold: z.boolean().optional(),
+	upcoming: z.boolean().optional(),
 })
 
 type MotorcycleFormProps = {}
@@ -93,6 +94,7 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 				featured: initialData.featured || false,
 				sold: initialData.sold || false,
 				onHold: initialData.onHold || false,
+				upcoming: initialData.upcoming || false,
 				coverUrl: initialData.coverUrl || undefined,
 		  }
 		: {
@@ -104,6 +106,7 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 				featured: false,
 				sold: false,
 				onHold: false,
+				upcoming: false,
 				coverUrl: undefined,
 		  }
 
@@ -385,6 +388,42 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 											<p>
 												Only Featured items appear in
 												the Moto-Repair website
+											</p>
+										</TooltipContent>
+									</Tooltip>
+								</TooltipProvider>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name="upcoming"
+							render={({ field }) => (
+								<TooltipProvider>
+									<Tooltip>
+										<TooltipTrigger asChild>
+											<FormItem className="">
+												<FormLabel></FormLabel>
+												<FormControl>
+													<Switch
+														disabled={loading}
+														checked={field.value}
+														onCheckedChange={
+															field.onChange
+														}
+													/>
+												</FormControl>
+												<FormDescription>
+													Upcoming
+												</FormDescription>
+												<FormMessage />
+											</FormItem>
+										</TooltipTrigger>
+										<TooltipContent>
+											<p>Use this to mark as Upcoming</p>
+											<p>
+												Upcoming items appear in
+												the Moto-Repair website if they
+												are marked as Featured
 											</p>
 										</TooltipContent>
 									</Tooltip>
