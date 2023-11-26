@@ -1,10 +1,21 @@
-import { MotoItemWithImagesType } from '@/app/(Web-Pages)/motorcycle-shop/moto-shop-types'
+import { MotoItemWithImagesType, MotoItemImagesType } from '@/app/(Web-Pages)/motorcycle-shop/moto-shop-types'
 import prismadb from '@/lib/prismadb'
 import { NextRequest, NextResponse } from 'next/server'
 
+
+function removeDuplicates(array : {url: string}[]): {url: string}[] {
+    return array.filter((item, index, self) =>
+	  index === self.findIndex((t) => (
+		t.url === item.url
+	  ))
+
+    );
+}
+
+
 export async function POST(req: NextRequest, res: NextResponse) {
 	const body:MotoItemWithImagesType = await req.json()
-
+	const uniqueImages = removeDuplicates(body.images)
 	try {
 		const response = await prismadb.motoItem.create({
 			data: {
@@ -13,7 +24,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 				description: body.description,
 				price: body.price,
 				images: {
-					create: body.images,
+					create: uniqueImages,
 				},
 				coverUrl: body.coverUrl,
 				featured: body.featured,
@@ -37,6 +48,12 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
 export async function PUT(req: NextRequest, res: NextResponse) {
 	const body:MotoItemWithImagesType = await req.json()
+
+	
+	
+	const uniqueImages = removeDuplicates(body.images)
+
+	
 	 
 	try {
 		const response = await prismadb.motoItem.update({
@@ -57,7 +74,7 @@ export async function PUT(req: NextRequest, res: NextResponse) {
 				addedByUserId: body.addedByUserId,
 				images: {
 					deleteMany: {},
-					create: body.images,
+					create: uniqueImages,
 				},
 			}
 		})
