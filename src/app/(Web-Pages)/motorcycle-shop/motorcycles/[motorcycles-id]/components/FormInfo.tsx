@@ -73,12 +73,19 @@ export default function FormInfo({ open = false, onClose }: FormInfoProps) {
 					className="h-auto mx-4 col-span-1"
 				/>
 				<p className="col-span-1">
-					Marks the item as upcoming.
-					The Item will still appear in the{' '}
+					Marks the item as upcoming. The Item will still
+					appear in the{' '}
 					<b className="whitespace-nowrap">Moto-Repair </b>
-					website if marked as <span className="bg-green-500 w-fit rounded-md px-2 py-1 text-black font-semibold whitespace-nowrap">
+					website but with a
+					<div className="text-center my-1  w-fit px-2 z-50 bg-cyan-400 font-semibold">
+						Скоро се очаква в наличност
+					</div>
+					tag
+					if marked as{' '}
+					<span className="bg-green-500 w-fit rounded-md px-2 py-1 text-black font-semibold whitespace-nowrap">
 						Featured
-					</span>{' '}.
+					</span>{' '}
+					.
 				</p>
 
 				<Separator className="col-span-3" />
