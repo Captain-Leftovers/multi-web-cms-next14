@@ -203,7 +203,7 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 				loading={loading}
 				onConfirm={onDelete}
 			/>
-			<div className="flex itmes-center px-2">
+			<div className="flex items-center px-2">
 				<Heading title={title} description={description} />
 				<FormInfo open={openInfo} onClose={() => setOpenInfo(false)} />
 				<Button
@@ -227,7 +227,7 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 				)}
 			</div>
 			<Separator />
-			<Form {...form}>
+			<Form  {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
 					className="space-y-8 w-full px-2"

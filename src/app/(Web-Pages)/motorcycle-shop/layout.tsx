@@ -1,4 +1,3 @@
-import Footer from '@/components/navigation/footer'
 import Navbar from '@/components/navigation/navbar'
 import { RoutesType } from '@/lib/main.types'
 
@@ -19,7 +18,7 @@ const routerArr: RoutesType[] = [
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<div className='flex flex-col h-screen'>
+		<div className='flex flex-col h-[100svh]'>
 			<Navbar routesArr={routerArr} title="Motorcycle shop"/>
 			{children}
 		</div>
