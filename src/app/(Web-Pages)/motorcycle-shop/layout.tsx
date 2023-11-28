@@ -18,7 +18,7 @@ const routerArr: RoutesType[] = [
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<div className='flex flex-col h-[100svh]'>
+		<div className='flex flex-col min-h-[100svh]'>
 			<Navbar routesArr={routerArr} title="Motorcycle shop"/>
 			{children}
 		</div>
