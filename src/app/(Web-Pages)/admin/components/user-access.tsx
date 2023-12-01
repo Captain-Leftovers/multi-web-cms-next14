@@ -11,10 +11,9 @@ type FormInfoProps = {
 	}
 }
 export default function UserAccess({ data }: FormInfoProps) {
-
 	const accessModal = useEditStoreAccessModal()
-	
-	const storeAccess = (id:string) => {
+
+	const storeAccess = (id: string) => {
 		//return the stores with access and the stores without access from the stores array
 		const storesWithAccess = data.stores.filter((store) => {
 			return data.userStores.some((userStore) => {
@@ -28,32 +27,31 @@ export default function UserAccess({ data }: FormInfoProps) {
 		})
 
 		const allStores = data.stores
-		return {storesWithAccess, storesWithoutAccess, allStores }
-		
-		
-}
+		return { storesWithAccess, storesWithoutAccess, allStores }
+	}
 	return (
 		<div className="py-10">
 			<ul className="even:bg-green-300 w-fit mx-auto">
-
 				{data.usersFromDb.map((user) => (
 					<li
-					onClick={()=>accessModal.onOpen( storeAccess(user.id), user)}
+						onClick={() =>
+							accessModal.onOpen(storeAccess(user.id), user)
+						}
 						key={user.id}
 						className="py-2 cursor-pointer even:text-black even:bg-white odd:bg-black odd:text-white font-medium hover:bg-red-600"
 					>
 						<div className="flex items-center">
 							<p className=" px-4 py-2">
-								<span>
+								<span className="">
 									<b>Email:</b>{' '}
 								</span>
-								{user.email}
+								<span className="">{user.email}</span>
 							</p>
 							<p className=" px-4 py-2">
 								<span>
 									<b>Id:</b>{' '}
 								</span>
-								{user.id}
+								<span className="">{user.id}</span>
 							</p>
 						</div>
 					</li>

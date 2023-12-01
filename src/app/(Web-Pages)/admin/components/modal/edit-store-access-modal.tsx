@@ -1,9 +1,8 @@
 'use client'
 
 import { Modal } from '@/components/ui/modal'
-import { Switch } from '@/components/ui/switch'
 import { useEditStoreAccessModal } from '@/hooks/useEditStoreAccessModal'
-import SwitchAccessComponent from '../SwitchAccessComponent'
+import SwitchAccessComponent from '../switch-access-component'
 import { useState } from 'react'
 import { Separator } from '@/components/ui/separator'
 
