@@ -19,6 +19,7 @@ export default async function Navbar({
 	routesArr,
 	title,
 	className,
+	titleHref
 }: NavbarProps) {
 	const stores = (await getStoresWithAccess()) || []
 
@@ -27,7 +28,8 @@ export default async function Navbar({
 			<Container className="py-2">
 					<p className="font-bold text-xl text-center">
 						<Link
-							href={'https://www.bahamataservice.com/'}
+							href={titleHref || '#'}
+							target={titleHref ? '_blank' : '_self'}
 						>
 
 							{title}
