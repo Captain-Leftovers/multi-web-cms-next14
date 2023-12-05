@@ -19,14 +19,12 @@ export default async function Navbar({
 	routesArr,
 	title,
 	className,
-	titleHref,
 }: NavbarProps) {
 	const stores = (await getStoresWithAccess()) || []
 
 	return (
 		<div className={cn('z-50  h-16', className)}>
 			<Container className="py-2">
-				<Link href="/motorcycle-shop" className=" mx-auto">
 					<p className="font-bold text-xl text-center">
 						<Link
 							href={'https://www.bahamataservice.com/'}
@@ -35,7 +33,6 @@ export default async function Navbar({
 							{title}
 						</Link>
 					</p>
-				</Link>
 				<div className="relative px-4 sm:px-6 lg:px-8 flex items-center justify-around">
 					<MainNav stores={stores} routerArr={routesArr} />
 					<NavbarActions />
