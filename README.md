@@ -19,7 +19,6 @@
         <li><strong>TypeScript:</strong> Ensuring a robust coding environment with type safety, facilitating maintenance and development.</li>
         <li><strong>Tailwind CSS:</strong> A utility-first CSS framework used for designing custom and responsive layouts quickly and efficiently.</li>
         <li><strong>Prisma:</strong> Serving as the next-generation ORM for Node.js and TypeScript, Prisma simplifies database access and ensures secure and straightforward data management.</li>
-        <li>Other libraries and tools such as <strong>Axios</strong> for HTTP requests, <strong>React Hot Toast</strong> for notifications, and <strong>Lucide React</strong> for icons enhance the development experience by providing efficient state management, form handling, and schema validation.</li>
     </ul>
 
 
