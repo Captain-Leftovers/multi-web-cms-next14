@@ -2,7 +2,6 @@ import prismadb from '@/lib/prismadb'
 import { NextResponse } from 'next/server'
 
 export async function GET(req: Request, res: NextResponse) {
-	
 	try {
 		const products = await prismadb.motoItem.findMany({
 			where: {
@@ -15,7 +14,8 @@ export async function GET(req: Request, res: NextResponse) {
 				createdAt: 'desc',
 			},
 		})
-		
+
+		console.log('[PRODUCTS_GET]', products)
 
 		return NextResponse.json(products)
 	} catch (error) {

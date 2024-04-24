@@ -60,6 +60,17 @@ export default function FormInfo({ open = false, onClose }: FormInfoProps) {
 						Featured
 					</span>
 				</div>
+				<Separator
+					orientation="vertical"
+					className="h-auto mx-4 col-span-1"
+				/>
+				<section className="col-span-1">
+					<p>
+						Adds the Item to{' '}
+						<b className="whitespace-nowrap">Moto-Repair </b>
+						website
+					</p>
+				</section>
 				<Separator className="col-span-3" />
 
 				<div className="col-span-1 flex flex-col justify-around gap-4">
@@ -73,15 +84,17 @@ export default function FormInfo({ open = false, onClose }: FormInfoProps) {
 					className="h-auto mx-4 col-span-1"
 				/>
 				<p className="col-span-1">
-					Marks the item as upcoming. The Item will still
-					appear in the{' '}
+					Marks the item as{' '}
+					<b>
+						<i>Upcoming.</i>
+					</b>
+					The Item will still appear in the{' '}
 					<b className="whitespace-nowrap">Moto-Repair </b>
 					website but with a
 					<div className="text-center my-1  w-fit px-2 z-50 bg-cyan-400 font-semibold">
 						Скоро се очаква в наличност
 					</div>
-					tag
-					if marked as{' '}
+					tag if marked as{' '}
 					<span className="bg-green-500 w-fit rounded-md px-2 py-1 text-black font-semibold whitespace-nowrap">
 						Featured
 					</span>{' '}
@@ -123,16 +136,22 @@ export default function FormInfo({ open = false, onClose }: FormInfoProps) {
 					className="h-auto mx-4 col-span-1"
 				/>
 				<section className="col-span-1">
-					<p>
-						Hides the Item from{' '}
+					<p className="col-span-1">
+						Marks the item as{' '}
+						<b>
+							<i>Sold</i>
+						</b>
+						. The Item will still appear in the{' '}
 						<b className="whitespace-nowrap">Moto-Repair </b>
-						website even if{' '}
+						website if{' '}
 						<span className="bg-green-500 w-fit rounded-md px-2 py-1 text-black font-semibold whitespace-nowrap">
 							Featured
 						</span>{' '}
 						is enabled.
 					</p>
-					<p>Does not delete the item from the database.</p>
+					<div className="text-center my-1  w-fit px-2 z-50 bg-red-500 font-semibold">
+						Продаден
+					</div>
 				</section>
 
 				<Separator className="col-span-3" />
