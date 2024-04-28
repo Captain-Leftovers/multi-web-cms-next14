@@ -114,15 +114,22 @@ export default function FormInfo({ open = false, onClose }: FormInfoProps) {
 					className="h-auto mx-4 col-span-1"
 				/>
 				<p className="col-span-1">
-					Hides the Item from{' '}
+					Marks the item as{' '}
+					<b>
+						<i>On Hold.</i>
+					</b>
+					The Item will still appear in the{' '}
 					<b className="whitespace-nowrap">Moto-Repair </b>
-					website even if{' '}
+					website but with a
+					<div className="text-center my-1  w-fit px-2 z-50 bg-yellow-300 font-semibold">
+						Резервиран
+					</div>
+					tag if marked as{' '}
 					<span className="bg-green-500 w-fit rounded-md px-2 py-1 text-black font-semibold whitespace-nowrap">
 						Featured
 					</span>{' '}
-					is enabled.
+					.
 				</p>
-
 				<Separator className="col-span-3" />
 
 				<div className=" col-span-1 flex flex-col justify-around gap-4">
@@ -136,22 +143,23 @@ export default function FormInfo({ open = false, onClose }: FormInfoProps) {
 					className="h-auto mx-4 col-span-1"
 				/>
 				<section className="col-span-1">
-					<p className="col-span-1">
-						Marks the item as{' '}
-						<b>
-							<i>Sold</i>
-						</b>
-						. The Item will still appear in the{' '}
-						<b className="whitespace-nowrap">Moto-Repair </b>
-						website if{' '}
-						<span className="bg-green-500 w-fit rounded-md px-2 py-1 text-black font-semibold whitespace-nowrap">
-							Featured
-						</span>{' '}
-						is enabled.
-					</p>
+				<p className="col-span-1">
+					Marks the item as{' '}
+					<b>
+						<i>.</i>
+					</b>
+					The Item will still appear in the{' '}
+					<b className="whitespace-nowrap">Moto-Repair </b>
+					website but with a
 					<div className="text-center my-1  w-fit px-2 z-50 bg-red-500 font-semibold">
 						Продаден
 					</div>
+					tag if marked as{' '}
+					<span className="bg-green-500 w-fit rounded-md px-2 py-1 text-black font-semibold whitespace-nowrap">
+						Featured
+					</span>{' '}
+					.
+				</p>
 				</section>
 
 				<Separator className="col-span-3" />
