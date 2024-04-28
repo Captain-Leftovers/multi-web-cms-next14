@@ -167,6 +167,30 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 		}
 	}
 
+	const onUpcomingChange = (checked: boolean) => {
+		form.setValue('upcoming', checked)
+		if (checked) {
+			form.setValue('onHold', false)
+			form.setValue('sold', false)
+		}
+	}
+
+	const onOnHoldChange = (checked: boolean) => {
+		form.setValue('onHold', checked)
+		if (checked) {
+			form.setValue('upcoming', false)
+			form.setValue('sold', false)
+		}
+	}
+
+	const onSoldChange = (checked: boolean) => {
+		form.setValue('sold', checked)
+		if (checked) {
+			form.setValue('upcoming', false)
+			form.setValue('onHold', false)
+		}
+	}
+
 	const onDelete = async () => {
 		setOpen(false)
 		if (!initialData) return
@@ -227,7 +251,7 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 				)}
 			</div>
 			<Separator />
-			<Form  {...form}>
+			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
 					className="space-y-8 w-full px-2"
@@ -407,8 +431,12 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 													<Switch
 														disabled={loading}
 														checked={field.value}
-														onCheckedChange={
-															field.onChange
+														onCheckedChange={(
+															checked
+														) =>
+															onUpcomingChange(
+																checked
+															)
 														}
 													/>
 												</FormControl>
@@ -421,9 +449,9 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 										<TooltipContent>
 											<p>Use this to mark as Upcoming</p>
 											<p>
-												Upcoming items appear in
-												the Moto-Repair website if they
-												are marked as Featured
+												Upcoming items appear in the
+												Moto-Repair website if they are
+												marked as Featured
 											</p>
 										</TooltipContent>
 									</Tooltip>
@@ -443,8 +471,12 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 													<Switch
 														disabled={loading}
 														checked={field.value}
-														onCheckedChange={
-															field.onChange
+														onCheckedChange={(
+															checked
+														) =>
+															onOnHoldChange(
+																checked
+															)
 														}
 													/>
 												</FormControl>
@@ -457,9 +489,9 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 										<TooltipContent>
 											<p>Use this to mark as On Hold</p>
 											<p>
-												On Hold items don&apos;t appear in
-												the Moto-Repair website but they
-												are still visible in this
+												On Hold items don&apos;t appear
+												in the Moto-Repair website but
+												they are still visible in this
 												dashboard
 											</p>
 										</TooltipContent>
@@ -481,7 +513,7 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 														disabled={loading}
 														checked={field.value}
 														onCheckedChange={
-															field.onChange
+															(checked) => onSoldChange(checked)
 														}
 													/>
 												</FormControl>
@@ -494,9 +526,10 @@ export default function MotorcycleForm({}: MotorcycleFormProps) {
 										<TooltipContent>
 											<p>Use this to mark as Sold</p>
 											<p>
-												Sold items don&apos;t appear in the
-												Moto-Repair website but they are
-												still visible in this dashboard
+												Sold items don&apos;t appear in
+												the Moto-Repair website but they
+												are still visible in this
+												dashboard
 											</p>
 										</TooltipContent>
 									</Tooltip>

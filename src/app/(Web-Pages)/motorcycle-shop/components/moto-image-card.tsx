@@ -53,6 +53,7 @@ export default function MotoImageCard({
 								</CardDescription>
 							)}
 							{imageData.onHold && (
+								// TODO : add on hold items to the live website but add there a banner mantioning the item is on hold andd add it to the cms aswell
 								<CardDescription className=" mt-4 bg-yellow-300 w-fit rounded-md px-2 py-1 text-black font-semibold z-50 whitespace-nowrap">
 									On Hold
 								</CardDescription>
@@ -62,10 +63,11 @@ export default function MotoImageCard({
 									Upcoming
 								</CardDescription>
 							)}
-							{
-						imageData.featured &&
-						<CardDescription className=" mt-4 bg-green-500 w-fit rounded-lg px-2 py-1 text-white z-50">Featured</CardDescription>
-					}
+							{imageData.featured && (
+								<CardDescription className=" mt-4 bg-green-500 w-fit rounded-lg px-2 py-1 text-white z-50">
+									Featured
+								</CardDescription>
+							)}
 						</div>
 
 						<Image
