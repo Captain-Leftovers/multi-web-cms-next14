@@ -13,28 +13,51 @@ export async function getAllMotoItems() {
 		})
 
 		motoItem.sort((a, b) => {
-			// Priority to items that are not sold and not upcoming
-			if (!a.sold && !a.upcoming && (b.sold || b.upcoming)) {
-				return -1 // a should come before b
-			} else if (!b.sold && !b.upcoming && (a.sold || a.upcoming)) {
-				return 1 // b should come before a
+			// Priority 1: Featured only
+			if (
+				a.featured &&
+				!a.upcoming &&
+				!a.onHold &&
+				!a.sold &&
+				!(b.featured && !b.upcoming && !b.onHold && !b.sold)
+			) {
+				return -1
+			}
+			if (
+				b.featured &&
+				!b.upcoming &&
+				!b.onHold &&
+				!b.sold &&
+				!(a.featured && !a.upcoming && !a.onHold && !a.sold)
+			) {
+				return 1
 			}
 
-			// Next, prioritize items that are upcoming but not sold
-			if (!a.sold && a.upcoming && (b.sold || !b.upcoming)) {
-				return -1 // a should come before b
-			} else if (!b.sold && b.upcoming && (a.sold || !a.upcoming)) {
-				return 1 // b should come before a
+			// Priority 2: Upcoming
+			if (a.upcoming && !b.upcoming) {
+				return -1
+			}
+			if (b.upcoming && !a.upcoming) {
+				return 1
 			}
 
-			// Lastly, sold items
+			// Priority 3: OnHold
+			if (a.onHold && !b.onHold) {
+				return -1
+			}
+			if (b.onHold && !a.onHold) {
+				return 1
+			}
+
+			// Priority 4: Sold
 			if (a.sold && !b.sold) {
-				return 1 // a is sold and b is not, a should come after b
-			} else if (b.sold && !a.sold) {
-				return -1 // b is sold and a is not, b should come after a
+				return -1
+			}
+			if (b.sold && !a.sold) {
+				return 1
 			}
 
-			return 0 // If both are equal in terms of their grouping, maintain their order
+			return 0 // Keep original order if none of the above conditions met
 		})
 
 		return { motoItem, error: null }
